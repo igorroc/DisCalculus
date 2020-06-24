@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args) => {
             
             var SHembed = new Discord.MessageEmbed()
             .setColor(colours.yellow)
-            .setAuthor(bot.user.username, message.guild.iconURL)
-            .setThumbnail(bot.user.displayAvatarURL)
-            .setDescription(`> Bot prefix is: \`${prefix}\`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases}`)
+            .setAuthor(bot.user.username, message.guild.iconURL())
+            .setThumbnail(bot.user.avatarURL())
+            .setDescription(`> Bot prefix is: \`${prefix}\`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases.join(", ")}`)
             message.channel.send(SHembed);
         }}
 
     if(!args[0]) {
-        let comandosSimples = Array.from(bot.commands.filter(c => c.config.accessableby === 'Members' )).toString()//.join(" `|` ")
+        let comandosSimples = Array.from(bot.commands.filter(c => c.config.accessableby === 'Members' )).toString()
         comandosSimples = comandosSimples.replace(/(,\[object Object\])+/g, "")
         comandosSimples = comandosSimples.replace(/[,]+/g, " ` | ` ")
         
@@ -33,9 +33,8 @@ module.exports.run = async (bot, message, args) => {
         
         let Sembed = new Discord.MessageEmbed()
         .setColor(colours.yellow)
-        .setAuthor(bot.user.username, message.guild.iconURL)
-        .setThumbnail(bot.user.displayAvatarURL)
-        .setTimestamp()
+        .setAuthor(bot.user.username, message.guild.iconURL())
+        .setThumbnail(bot.user.avatarURL())
         .setDescription(`These are the commands available to the ${bot.user.username}!\n> Bot prefix is: \`${prefix}\``)
         .addField(`Commands:`, "` " + comandosSimples + " `")
         
@@ -46,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
                 Sembed.addField("Special Commands:", "Nothing")
             }
         }
-        Sembed.addField("For more information", `type \`${prefix}help [command]\``)
+        Sembed.addField("For more information", `type \` ${prefix}help [command] \``)
         .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`, bot.user.displayAvatarURL)
         message.channel.send(Sembed)
     }

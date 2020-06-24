@@ -49,7 +49,7 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
     
     if(!message.content.startsWith(prefix)) return; // Valida o prefix do comando
-    
+
     let m = await message.channel.send(loading)
     if (falouRecentemente.has(message.author.id)) {
         await m.edit("Wait 5 seconds until sending another command.").then(async n => {
