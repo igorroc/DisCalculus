@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
     try {
         resultado = Math.sqrt(valor)
     } catch (error) {
-        console.log(`↳ ⚠️ Erro ao calcular raiz de "${valor}" `)
+        console.log(`↳ ⚠️  Erro ao calcular raiz de "${valor}" `)
         return message.channel.send("`❌` Error calculating the square root, try again")
     }
 

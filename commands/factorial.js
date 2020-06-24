@@ -12,17 +12,17 @@ module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Factorial`)
     
     if(!args){
-        console.log(`↳ ⚠️ Usuário não informou um valor `)
+        console.log(`↳ ⚠️  Usuário não informou um valor `)
         return message.channel.send("`❌` Enter some value for me to perform the factorial.\n> For more information, type ` +help factorial `")
     }
     if(args[1]){
-        console.log("↳ ⚠️ Usuário indicou mais de 1 valor")
+        console.log("↳ ⚠️  Usuário indicou mais de 1 valor")
         return message.channel.send("`❌` Enter only one value.\n> For more information, type ` +help factorial `")
     }
 
     let valor = args
     if(isNaN(valor)){
-        console.log("↳ ⚠️ Valor indicado não é um número")
+        console.log("↳ ⚠️  Valor indicado não é um número")
         return message.channel.send("`❌` The value entered is not a number.")
     }
     
@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(`↳ ✅ Operação finalizada!`)
         return message.channel.send(`\`\`\`\n${valor}! = ${resposta}\`\`\``)
     }else{
-        console.log(`↳ ⚠️ Não foi possível calcular o fatorial de ${valor}`)
+        console.log(`↳ ⚠️  Não foi possível calcular o fatorial de ${valor}`)
         return message.channel.send(`\`❌\` It was not possible to calculate the factorial of "${valor}"`)
     }
 }
