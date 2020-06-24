@@ -8,6 +8,7 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
 const falouRecentemente = new Set()
+
 let loading = "<a:loading:722456385098481735>"
 
 
