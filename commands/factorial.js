@@ -13,34 +13,34 @@ module.exports.run = async (bot, message, args) => {
     
     if(!args){
         console.log(`↳ ⚠️ Usuário não informou um valor `)
-        return message.channel.send("`❌` Informe algum valor para eu realizar o fatorial\n> Para mais informações digite `+help factorial`")
+        return message.channel.send("`❌` Enter some value for me to perform the factorial.\n> For more information, type ` +help factorial `")
     }
     if(args[1]){
         console.log("↳ ⚠️ Usuário indicou mais de 1 valor")
-        return message.channel.send("`❌` Indique apenas um valor\n> Para mais informações digite ` +help fatorial `")
+        return message.channel.send("`❌` Enter only one value.\n> For more information, type ` +help factorial `")
     }
 
     let valor = args
     if(isNaN(valor)){
         console.log("↳ ⚠️ Valor indicado não é um número")
-        return message.channel.send("`❌` O valor não é um número")
+        return message.channel.send("`❌` The value entered is not a number.")
     }
     
     let resposta = factorial(valor)
     if(resposta){
-        console.log(`↳ ✅ Operação finalizada`)
+        console.log(`↳ ✅ Operação finalizada!`)
         return message.channel.send(`\`\`\`\n${valor}! = ${resposta}\`\`\``)
     }else{
         console.log(`↳ ⚠️ Não foi possível calcular o fatorial de ${valor}`)
-        return message.channel.send(`\`❌\` Não foi possível calcular o fatorial de ${valor}`)
+        return message.channel.send(`\`❌\` It was not possible to calculate the factorial of "${valor}"`)
     }
 }
 
 
 module.exports.config = {
     name: "factorial",
-    description: "Calcula o fatorial do valor!",
-    usage: "+factorial [valor]",
-    accessableby: "Membros",
-    aliases: ["fac", "fat", "!"]
+    description: "Calculates the factorial of the value!",
+    usage: "+factorial [value]",
+    accessableby: "Members",
+    aliases: ["fac", "fat", "!", "fatorial"]
 }

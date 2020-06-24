@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } catch (error) {
         console.log(`↳ ⚠️ Erro ao calcular "${conta}"`)
-        return message.channel.send("Erro ao calcular")
+        return message.channel.send("Error when calculating.")
     }
     
 
@@ -38,9 +38,9 @@ module.exports.run = async (bot, message, args) => {
 
 
 module.exports.config = {
-    name: "calculo",
-    description: "Realiza o calculo especificado!",
-    usage: "+calculo [conta]",
-    accessableby: "Membros",
+    name: "calculate",
+    description: "Perform the specified calculation!",
+    usage: "+calculate [calculation]",
+    accessableby: "Members",
     aliases: ["calc", "c"]
 }

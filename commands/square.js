@@ -10,17 +10,17 @@ module.exports.run = async (bot, message, args) => {
     
     if(!valor){
         console.log(`↳ ⚠️ Usuário não informou um valor `)
-        return message.channel.send("`❌` Informe algum valor para eu realizar a raiz\n> Para mais informações digite `+help square`")
+        return message.channel.send("`❌` Enter some value for me to perform the square root.\n> For more information, type ` +help square `")
     }
     if(valor.search(/[^0-9]/gm) > -1){
         if(valor.match(/[.]/g)||[].length > 1){
             console.log(`↳ ⚠️ Usuário digitou mais de um "."`)
-            return message.channel.send("Digite apenas um ` . `")
+            return message.channel.send("`❌` Enter only one ` . `")
         }else if(valor.match(/[.]/gm)||[].length == 1){
             // ok apenas um "."
         }else{
             console.log(`↳ ⚠️ Usuário digitou algum caractere`)
-            return message.channel.send("Digite apenas números")
+            return message.channel.send("`❌` Enter numbers only.")
         }
     }
 
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
         resultado = Math.sqrt(valor)
     } catch (error) {
         console.log(`↳ ⚠️ Erro ao calcular raiz de "${valor}" `)
-        return message.channel.send("`❌` Erro ao calcular, tente novamente")
+        return message.channel.send("`❌` Error calculating the square root, try again")
     }
 
     message.channel.send(`\`\`\`\n√(${valor}) = ${resultado}\n\`\`\``)
@@ -39,8 +39,8 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "square",
-    description: "Informa a raiz quadrada do valor!",
-    usage: "+square [valor]",
-    accessableby: "Membros",
+    description: "Tells the square root of the value!",
+    usage: "+square [value]",
+    accessableby: "Members",
     aliases: ["sq", "raiz", "√"]
 }

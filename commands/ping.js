@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let check = "<a:check:722456384301563966>"
     
     const m = await message.channel.send(`${loading} Ping?`);
-    m.edit(`${check} Pong! A latencia é de ${m.createdTimestamp - message.createdTimestamp}ms. A latencia da API é ${Math.round(bot.ping)}ms`);
+    m.edit(`${check} Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API latency is ${Math.round(bot.ping)}ms`);
     console.log(`↳ Ping! Pong! Latencia: ${m.createdTimestamp - message.createdTimestamp}ms , API: ${Math.round(bot.ping)}ms`)
 
 }
@@ -16,8 +16,8 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "ping",
-    description: "Informa a latência atual da conexão bot-servidor!",
+    description: "Reports the current latency of the bot-server connection!",
     usage: "+ping",
-    accessableby: "Membros",
+    accessableby: "Members",
     aliases: ["latencia", "ms"]
 }

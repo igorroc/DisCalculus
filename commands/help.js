@@ -6,7 +6,7 @@ const prefix = botconfig.prefix
 module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Help`)
 
-    if(args[0] == "help") return message.channel.send(`Use \`${prefix}help\` invés disso.`)
+    if(args[0] == "help") return message.channel.send(`Use this instead \`${prefix}help\` `)
 
     if(args[0]) {
         let command = args[0];
@@ -17,43 +17,48 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.yellow)
             .setAuthor(bot.user.username, message.guild.iconURL)
             .setThumbnail(bot.user.displayAvatarURL)
-            .setDescription(`O prefixo do bot é: \`${prefix}\`\n\n**Comando:** ${command.config.name}\n**Descrição:** ${command.config.description || "Sem descrição"}\n**Uso:** ${command.config.usage || "Sem uso"}\n**Acessivel para:** ${command.config.accessableby || "Membros"}\n**Variações:** ${command.config.noalias || command.config.aliases}`)
+            .setDescription(`> Bot prefix is: \`${prefix}\`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases}`)
             message.channel.send(SHembed);
         }}
 
     if(!args[0]) {
-        let comandosSimples = Array.from(bot.commands.filter(c => c.config.accessableby === 'Membros' )).join(" `|` ")
-        comandosSimples = comandosSimples.split("[object Object]").toString().replace(/,,/g, '')
+        let comandosSimples = Array.from(bot.commands.filter(c => c.config.accessableby === 'Members' )).toString()//.join(" `|` ")
+        comandosSimples = comandosSimples.replace(/(,\[object Object\])+/g, "")
+        comandosSimples = comandosSimples.replace(/[,]+/g, " ` | ` ")
         
-        let comandosAdmin = Array.from(bot.commands.filter(c => c.config.accessableby === 'Moderadores' )).join(" `|` ")
-        comandosAdmin = comandosAdmin.split("[object Object]").toString().replace(/,,/g, '')
+
+        let comandosAdmin = Array.from(bot.commands.filter(c => c.config.accessableby === 'Mod' )).join(" `|` ")
+        comandosAdmin = comandosSimples.replace(/(,\[object Object\])+/g, "")
+        comandosAdmin = comandosSimples.replace(/[,]+/g, " ` | ` ")
         
         let Sembed = new Discord.MessageEmbed()
         .setColor(colours.yellow)
         .setAuthor(bot.user.username, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
-        .setDescription(`Esses são os comandos disponíveis para o Bot ${bot.user.username}!\nO prefixo do bot é: \`${prefix}\``)
-        .addField(`Comandos:`, "` " + comandosSimples + " `")
+        .setDescription(`These are the commands available to the ${bot.user.username}!\n> Bot prefix is: \`${prefix}\``)
+        .addField(`Commands:`, "` " + comandosSimples + " `")
         
         if(message.member.hasPermission("ADMINISTRATOR")){
             if(comandosAdmin){
-                Sembed.addField("Comandos Especiais:", "` " + comandosAdmin + " `")
+                Sembed.addField("Special Commands:", "` " + comandosAdmin + " `")
             }else{
-                Sembed.addField("Comandos Especiais:", "Sem comandos")
+                Sembed.addField("Special Commands:", "Nothing")
             }
         }
-        Sembed.addField("Para mais informações", `digite \`${prefix}help [comando]\``)
-        .setFooter(`${bot.user.username} | Comandos: ${bot.commands.size}`, bot.user.displayAvatarURL)
+        Sembed.addField("For more information", `type \`${prefix}help [command]\``)
+        .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`, bot.user.displayAvatarURL)
         message.channel.send(Sembed)
     }
+
+    console.log(`↳ ✅ Operação finalizada!`)
 }
 
 
 module.exports.config = {
     name: "help",
-    description: "Resumo dos comandos do servidor!",
+    description: "Summary of server commands!",
     usage: "+help",
-    accessableby: "Membros",
+    accessableby: "Members",
     aliases: ["h", "commands", "comando", "comandos", "ajuda"]
 }

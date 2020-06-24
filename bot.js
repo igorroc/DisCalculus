@@ -7,6 +7,10 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
+const falouRecentemente = new Set()
+let loading = "<a:loading:722456385098481735>"
+
+
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
 
@@ -30,14 +34,14 @@ bot.once("ready", () => {
     console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
     console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`);
     console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
-    bot.user.setActivity(`Digite ${config.prefix}help para ajuda | Criado por Igor Rocha`, {type: 'WATCHING'})
+    bot.user.setActivity(`${config.prefix}help | Created by Igor Rocha`, {type: 'WATCHING'})
 
 })
 
 bot.on("message", async message => {
     
     if(message.author.bot) return;// Se o autor foi um bot, faz nada
-    if(message.channel.type == "dm") return message.channel.send("Não fala comigo por aqui..."); // Se a mensagem foi enviada por dm, não continua o código
+    if(message.channel.type == "dm") return message.channel.send("I don't answer here..."); // Se a mensagem foi enviada por dm, não continua o código
 
     let prefix = config.prefix; 
     let messageArray = message.content.split(" ")
@@ -45,13 +49,29 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
     
     if(!message.content.startsWith(prefix)) return; // Valida o prefix do comando
+    
+    let m = await message.channel.send(loading)
+    if (falouRecentemente.has(message.author.id)) {
+        await m.edit("Wait 5 seconds until sending another command.").then(async n => {
+            await n.delete(3000).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+        })
+    }else{
+        await m.delete()
 
-    let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
-    if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
-    else{
-        message.channel.send('Comando não encontrado')
-        console.log(`↳ Comando "${comando}" não encontrado`)
+        let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
+        if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
+        else{
+            message.channel.send('`❌` Command not found.')
+            console.log(`↳ Comando "${comando}" não encontrado`)
+        }
+
+        falouRecentemente.add(message.author.id);
+        setTimeout(() => {
+            falouRecentemente.delete(message.author.id);
+        }, 5000);
     }
+
+    
 
 })
 
