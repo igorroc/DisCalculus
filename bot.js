@@ -39,6 +39,12 @@ bot.once("ready", () => {
 
 })
 
+bot.once("guildCreate", server => {
+    console.log(`\n■▶ [LOGS] ⇥ Bot adicionado no servidor "${server.name}" | ID: "${server.id}"`)
+})
+
+bot.once("guildDelete", err => console.log(err))
+
 bot.on("message", async message => {
     
     if(message.author.bot) return;// Se o autor foi um bot, faz nada
