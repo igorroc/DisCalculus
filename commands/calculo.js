@@ -8,10 +8,12 @@ module.exports.run = async (bot, message, args) => {
     let conta = args.toString().replace(/pi|π/gm, pi).replace(/,/gm, "")
 
     if(!conta){
-        return message.channel.send("Informe alguma conta para eu realizar\n> Para mais informações digite `+help calculo`")
+        console.log(`↳ ⚠️ Usuário não enviou uma conta`)
+        return message.channel.send("`❌` Informe alguma conta para eu realizar\n> Para mais informações digite `+help calculo`")
     }
     if(conta.search(/[a-z]|[A-Z]/gm) > -1){
-        return message.channel.send("Ainda não posso fazer cálculos avançados")
+        console.log(`↳ ⚠️ Usuário digitou caracteres`)
+        return message.channel.send("`❌` Ainda não posso fazer cálculos avançados")
     }
 
 
@@ -25,14 +27,13 @@ module.exports.run = async (bot, message, args) => {
             resultado = eval(conta)
         }
     } catch (error) {
-        console.log(`↳ Erro ao calcular: "${conta}"`)
+        console.log(`↳ ⚠️ Erro ao calcular "${conta}"`)
         return message.channel.send("Erro ao calcular")
     }
     
-    console.log(`↳ Conta: ${conta} | Resultado: ${resultado}`)
 
     message.channel.send(`\`\`\`\n${conta} = ${resultado}\n\`\`\``)
-
+    console.log(`↳ ✅ Operação finalizada!`)
 }
 
 
