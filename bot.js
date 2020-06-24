@@ -27,7 +27,11 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.once("ready", () => {
-    console.log("\n\nReady\n")
+    console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
+    console.log(`■ Bot foi iniciado em ${bot.guilds.size} servidor(es) ■`);
+    console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
+    bot.user.setActivity(`Digite ${dbConfig.get('prefix').value()}help para ajuda | Criado por Igor Rocha`, {type: 'WATCHING'})
+
 })
 
 bot.on("message", async message => {
@@ -41,7 +45,7 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
     
     if(!message.content.startsWith(prefix)) return; // Valida o prefix do comando
-    
+
     let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
     if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
     else{
