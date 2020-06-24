@@ -53,7 +53,7 @@ bot.on("message", async message => {
     let m = await message.channel.send(loading)
     if (falouRecentemente.has(message.author.id)) {
         await m.edit("Wait 5 seconds until sending another command.").then(async n => {
-            await n.delete(3000).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+            await n.delete( {timeout: 3000} ).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
         })
     }else{
         await m.delete()
