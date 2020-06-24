@@ -6,7 +6,7 @@ const prefix = botconfig.prefix
 module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Help`)
 
-    if(args[0] == "help") return message.channel.send(`Use this instead \`${prefix}help\` `)
+    if(args[0] == "help") return message.channel.send(`\`❌\` Use \` ${prefix}help \` instead!`)
 
     if(args[0]) {
         let command = args[0];
@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`> Bot prefix is: \` ${prefix} \``)
             .addField('\u200b', '\u200b') // Field vazio
-            .addField("**Commands:**", command.config.name)
+            .addField("**Command:**", command.config.name)
             .addField("**Description:**", `${command.config.description || "No description"}`)
             .addField("**Usage:**", `${command.config.usage || "No usage"}`)
             .addField("**Accessable by:**", `${command.config.accessableby || "Members"}`)
