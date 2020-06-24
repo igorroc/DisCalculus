@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 
 module.exports.run = async (bot, message, args) => {
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Ping`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Ping no server "${message.guild.name}"`)
     
     let loading = "<a:loading:722456385098481735>"
     let check = "<a:check:722456384301563966>"

@@ -4,7 +4,7 @@ const colours = require("../colours.json")
 
 
 module.exports.run = async (bot, message, args) => {
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Invite`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Invite no server "${message.guild.name}"`)
     
     let embed = new Discord.MessageEmbed()
     .setColor(colours.green_light)

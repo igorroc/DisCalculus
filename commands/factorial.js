@@ -9,7 +9,7 @@ function factorial(value) {
 }
 
 module.exports.run = async (bot, message, args) => {
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Factorial`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Factorial no server "${message.guild.name}"`)
     
     if(!args){
         console.log(`↳ ⚠️  Usuário não informou um valor `)

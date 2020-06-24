@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const pi = '3.14159265359'
 
 module.exports.run = async (bot, message, args) => {
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Square`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Square no server "${message.guild.name}"`)
     
     
     let valor = args.toString().replace(/pi|π/gm, pi).replace(/,/gm, "")
