@@ -16,8 +16,13 @@ module.exports.run = async (bot, message, args) => {
             var SHembed = new Discord.MessageEmbed()
             .setColor(colours.yellow)
             .setAuthor(bot.user.username, message.guild.iconURL())
-            .setThumbnail(bot.user.avatarURL())
-            .setDescription(`> Bot prefix is: \` ${prefix} \`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases.join(", ")}`)
+            .setDescription(`> Bot prefix is: \` ${prefix} \``)
+            .addField('\u200b', '\u200b') // Field vazio
+            .addField("**Commands:**", command.config.name)
+            .addField("**Description:**", `${command.config.description || "No description"}`)
+            .addField("**Usage:**", `${command.config.usage || "No usage"}`)
+            .addField("**Accessable by:**", `${command.config.accessableby || "Members"}`)
+            .addField("**Aliases:**", `${command.config.noalias || command.config.aliases.join(", ")}`)
             message.channel.send(SHembed);
         }}
 
@@ -34,7 +39,6 @@ module.exports.run = async (bot, message, args) => {
         let Sembed = new Discord.MessageEmbed()
         .setColor(colours.yellow)
         .setAuthor(bot.user.username, message.guild.iconURL())
-        .setThumbnail(bot.user.avatarURL())
         .setDescription(`These are the commands available to the ${bot.user.username}!\n> Bot prefix is: \` ${prefix} \``)
         .addField(`Commands:`, "` " + comandosSimples + " `")
         
@@ -46,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
             }
         }
         Sembed.addField("---------------", `For more information type \` ${prefix}help [command] \``)
-        .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`, bot.user.avatarURL())
+        .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`)
         message.channel.send(Sembed)
     }
 
