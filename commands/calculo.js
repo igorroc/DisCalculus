@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 
 const pi = '3.14159265359'
+
 module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Calculo`)
     
@@ -16,7 +17,13 @@ module.exports.run = async (bot, message, args) => {
 
     let resultado
     try {
-        resultado = eval(conta)
+        if (conta.indexOf("^") > -1) {
+            var base = conta.slice(0, conta.indexOf("^"));
+            var exponent = conta.slice(conta.indexOf("^") + 1);
+            resultado = eval("Math.pow(" + base + "," + exponent + ")");
+        }else{
+            resultado = eval(conta)
+        }
     } catch (error) {
         console.log(`↳ Erro ao calcular: "${conta}"`)
         return message.channel.send("Erro ao calcular")
