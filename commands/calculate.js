@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "calculate",
     description: "Perform the specified calculation!",
-    usage: "+calculate [calculation]",
+    usage: "+calculate [calculation]\n+calculate ((((1-2)+3)*4)/5)^6",
     accessableby: "Members",
     aliases: ["calc", "c"]
 }
