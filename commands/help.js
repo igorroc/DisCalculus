@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.yellow)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setThumbnail(bot.user.avatarURL())
-            .setDescription(`> Bot prefix is: \`${prefix}\`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases.join(", ")}`)
+            .setDescription(`> Bot prefix is: \` ${prefix} \`\n\n**Command:** ${command.config.name}\n**Description:** ${command.config.description || "No description"}\n**Usage:** ${command.config.usage || "No usage"}\n**Accessable by:** ${command.config.accessableby || "Members"}\n**Aliases:** ${command.config.noalias || command.config.aliases.join(", ")}`)
             message.channel.send(SHembed);
         }}
 
@@ -35,18 +35,18 @@ module.exports.run = async (bot, message, args) => {
         .setColor(colours.yellow)
         .setAuthor(bot.user.username, message.guild.iconURL())
         .setThumbnail(bot.user.avatarURL())
-        .setDescription(`These are the commands available to the ${bot.user.username}!\n> Bot prefix is: \`${prefix}\``)
+        .setDescription(`These are the commands available to the ${bot.user.username}!\n> Bot prefix is: \` ${prefix} \``)
         .addField(`Commands:`, "` " + comandosSimples + " `")
         
         if(message.member.hasPermission("ADMINISTRATOR")){
             if(comandosAdmin){
                 Sembed.addField("Special Commands:", "` " + comandosAdmin + " `")
             }else{
-                Sembed.addField("Special Commands:", "Nothing")
+                Sembed.addField("Special Commands:", "None")
             }
         }
-        Sembed.addField("For more information", `type \` ${prefix}help [command] \``)
-        .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`, bot.user.displayAvatarURL)
+        Sembed.addField("---------------", `For more information type \` ${prefix}help [command] \``)
+        .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`, bot.user.avatarURL())
         message.channel.send(Sembed)
     }
 
