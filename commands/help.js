@@ -28,8 +28,8 @@ module.exports.run = async (bot, message, args) => {
         
 
         let comandosAdmin = Array.from(bot.commands.filter(c => c.config.accessableby === 'Mod' )).join(" `|` ")
-        comandosAdmin = comandosSimples.replace(/(,\[object Object\])+/g, "")
-        comandosAdmin = comandosSimples.replace(/[,]+/g, " ` | ` ")
+        comandosAdmin = comandosAdmin.replace(/(,\[object Object\])+/g, "")
+        comandosAdmin = comandosAdmin.replace(/[,]+/g, " ` | ` ")
         
         let Sembed = new Discord.MessageEmbed()
         .setColor(colours.yellow)
