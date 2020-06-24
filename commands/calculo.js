@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "calculo",
     description: "Realiza o calculo especificado!",
-    usage: "+calculo [(5+1)*2]",
+    usage: "+calculo [conta]",
     accessableby: "Membros",
     aliases: ["calc", "c"]
 }
