@@ -7,3 +7,5 @@ run.bat
 
 # Ignorar de commitar as seguintes pastas:
 node_modules/
+
+# Ignorar de commitar as seguintes pastas:
