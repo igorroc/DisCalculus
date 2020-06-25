@@ -3,9 +3,13 @@ const colours = require("../colours.json")
 const botconfig = require('../config.json')
 const prefix = botconfig.prefix
 
-module.exports.run = async (bot, message, args) => {
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Help no server "${message.guild.name}"`)
 
+module.exports.run = async (bot, message, args) => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Help" no server "${message.guild.name}"`)
+    log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Help \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
+    
     if(args[0] == "help") return message.channel.send(`\`❌\` Use \` ${prefix}help \` instead!`)
 
     if(args[0]) {
@@ -55,6 +59,8 @@ module.exports.run = async (bot, message, args) => {
     }
 
     console.log(`↳ ✅ Operação finalizada!`)
+    log.send(`↳ \\✅ Operação finalizada!`)
+    
 }
 
 
