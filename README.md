@@ -1,7 +1,7 @@
 # DisCalculus
 > ➗ A calculus bot for Discord ➕
 
-[![Discord](https://raw.githubusercontent.com/IgorRoc/MathBot/master/assets/Logo_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
+[![Discord](https://raw.githubusercontent.com/IgorRoc/MathBot/master/assets/Logo_Name_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
 
 ----
 ## 🔧 Commands: 
