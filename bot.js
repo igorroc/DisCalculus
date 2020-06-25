@@ -12,12 +12,13 @@ const falouRecentemente = new Set()
 let loading = "<a:loading:722456385098481735>"
 
 
+
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
 
     let jsfile = files.filter(f => f.split(".").pop() === "js") // Pega todos os nomes dos comandos da pasta "./commands/" e remove o '.js'
     if(jsfile.length <= 0) {
-         return console.log("[LOGS] Não foi possivel encontrar comandos!");
+        return console.log("[LOGS] Não foi possivel encontrar comandos!");
     }
 
     jsfile.forEach((f, i) => {
@@ -35,15 +36,29 @@ bot.once("ready", () => {
     console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
     console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`);
     console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
+
+    const logs = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
+    let reload = logs.send(`${loading}`).then(async m => {
+        await m.edit(`${loading} Carregando comandos...`).then(async m2 => {
+            await m2.edit(`\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
+                .catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+        }).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+    }).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+
     bot.user.setActivity(`${config.prefix}help | Created by Igor Rocha`, {type: 'WATCHING'})
 
 })
 
 bot.once("guildCreate", server => {
-    console.log(`\n■▶ [LOGS] ⇥ Bot adicionado no servidor "${server.name}" | ID: "${server.id}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Bot adicionado ao servidor "${server.name}" | ID: "${server.id}"`)
+    logs.send(`\\▶ [LOGS] ⇥ Bot adicionado ao servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
 })
 
-bot.once("guildDelete", err => console.log(err))
+bot.once("guildDelete", server => {
+    console.log(`\n■▶ [LOGS] ⇥ Bot removido do servidor "${server.name}" | ID: "${server.id}"`)
+    logs.send(`\\▶ [LOGS] ⇥ Bot removido do servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
+})
 
 bot.on("message", async message => {
     
@@ -68,8 +83,10 @@ bot.on("message", async message => {
         let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
         if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
         else{
+            message.channel
             message.channel.send('`❌` Command not found.')
-            console.log(`↳ Comando "${comando}" não encontrado`)
+            console.log(`❌ Comando "${comando}" não encontrado`)
+            logs.send(`\`❌\` Comando "${comando}" não encontrado`)
         }
 
         falouRecentemente.add(message.author.id);

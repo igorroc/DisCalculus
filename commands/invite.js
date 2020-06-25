@@ -4,8 +4,11 @@ const colours = require("../colours.json")
 
 
 module.exports.run = async (bot, message, args) => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Invite no server "${message.guild.name}"`)
-    
+    log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Invite \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
+
     let embed = new Discord.MessageEmbed()
     .setColor(colours.green_light)
     .setAuthor("INVITE", message.guild.iconURL())
@@ -24,5 +27,5 @@ module.exports.config = {
     description: "Send DisCalculus's invitation link!",
     usage: "+invite",
     accessableby: "Members",
-    aliases: ["convite"]
+    aliases: ["convite", "link"]
 }
