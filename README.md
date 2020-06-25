@@ -61,8 +61,9 @@ Calculates the square root of a number.
 
 
 ----
-## 🤝🏻 Contributors
-* [Igor Rocha](https://www.linkedin.com/in/igorroc/)
+## 📞 Contact
+* [LinkedIn](https://www.linkedin.com/in/igorroc/)
+* [e-Mail](mailto:igor_roc@hotmail.com.br)
 
 
 [Back to top](#)
