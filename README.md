@@ -5,7 +5,7 @@
 
 To add **DisCalculus** to your server just click on the image below
 
-[![Discord](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/Logo_Name_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
+[![Discord](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/Logo_Name_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
 
 ----
 ## 🔧 Commands: 
@@ -14,42 +14,53 @@ To add **DisCalculus** to your server just click on the image below
 
 By using it, you can find all commands the bot can do.
 
-![Help Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_help.png)
+![Help Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_help.png)
 
+---
 
     +help calculate
 
 You can also use the `help` command to learn more about a particular command, so you can see its aliases.
 
-![Help Calculate Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_help_calculate.png)
+![Help Calculate Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_help_calculate.png)
 
+---
 
     +calculate [calculation]
 
 Calculates a sequence of string based operations.
 
-![Calculate Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_calculate.png)
+![Calculate Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_calculate.png)
 
+---
 
     +factorial [value]
 
 Calculates the factorial of a number.
 
-![Factorial Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_factorial.png)
+![Factorial Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_factorial.png)
 
-
-    +ping
-
-A simple command that reports the current latency of the bot-server connection!
-
-![Ping Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_ping.png)
-
+---
 
     +square [value]
 
 Calculates the square root of a number.
 
-![Square Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/screenshot_square.png)
+![Square Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_square.png)
+
+---
+
+    +ping
+
+A simple command that reports the current latency of the bot-server connection!
+
+![Ping Command](https://raw.githubusercontent.com/IgorRoc/DisCalculus/fullfiles/assets/screenshot_ping.png)
+
+---
+
+    +conversion
+
+Coming soon
 
 ----
 ## 📁 Dependencies
@@ -61,7 +72,8 @@ Calculates the square root of a number.
 ----
 ## 🤖 Technologies used
 * [VisualStudio Code](https://code.visualstudio.com/) - IDE used for creation
-* [Discord](https://discord.com/)
+* [DisCloud](https://discloudbot.com/) - Bot hosting service
+* [Discord](https://discord.com/) - Service for which the bot was made
 
 
 ----
