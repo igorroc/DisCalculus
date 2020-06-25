@@ -2,5 +2,8 @@
 config.json
 DisCalculus.zip
 DisCalculus-fullfiles.zip
+package-lock.json
+run.bat
 
 # Ignorar de commitar as seguintes pastas:
+node_modules/
