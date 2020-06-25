@@ -1,0 +1,5 @@
+# Ignorar de commitar os seguintes arquivos:
+config.json
+DisCalculus.zip
+
+# Ignorar de commitar as seguintes pastas:
