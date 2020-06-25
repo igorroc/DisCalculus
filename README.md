@@ -3,7 +3,7 @@
 
 ## 📧 Invite:
 
-To add ***DisCalculus** to your server just click on the image below
+To add **DisCalculus** to your server just click on the image below
 
 [![Discord](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/Logo_Name_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
 
