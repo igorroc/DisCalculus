@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "invite",
-    description: "Send MathBot's invitation link!",
+    description: "Send DisCalculus's invitation link!",
     usage: "+invite",
     accessableby: "Members",
     aliases: ["convite"]
