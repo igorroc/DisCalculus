@@ -10,7 +10,7 @@ const cDB = require('../conversion.json')
 
 module.exports.run = async (bot, message, args) => {
 
-    return message.channel.send("Soon")
+    return message.channel.send("Coming Soon")
 
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando Conversion`)
     
