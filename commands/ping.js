@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     
     const m = await message.channel.send(`${loading} Ping?`);
     m.edit(`${check} Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI latency is ${Math.round(bot.ws.ping)}ms`);
-    console.log(`↳ Ping! Pong! Latencia: ${m.createdTimestamp - message.createdTimestamp}ms , API: ${Math.round(bot.ping)}ms`)
+    console.log(`↳ Ping! Pong! Latencia: ${m.createdTimestamp - message.createdTimestamp}ms , API: ${Math.round(bot.ws.ping)}ms`)
 
 }
 
