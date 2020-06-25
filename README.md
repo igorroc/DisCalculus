@@ -5,7 +5,7 @@
 
 To add **DisCalculus** to your server just click on the image below
 
-[![Discord](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/Logo_Name_Transparent.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
+[![Discord](https://raw.githubusercontent.com/IgorRoc/DisCalculus/master/assets/Logo_v4_Nome_Small.png)](https://discord.com/api/oauth2/authorize?client_id=725319850808967198&permissions=281664&scope=bot)
 
 ----
 ## 🔧 Commands: 
@@ -60,7 +60,7 @@ A simple command that reports the current latency of the bot-server connection!
 
     +conversion
 
-Coming soon
+><s>Coming Soon</s>
 
 ----
 ## 📁 Dependencies
