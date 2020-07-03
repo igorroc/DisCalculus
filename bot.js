@@ -11,7 +11,7 @@ const falouRecentemente = new Set()
 
 let loading = "<a:loading:722456385098481735>"
 
-
+const logs = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
@@ -37,8 +37,7 @@ bot.once("ready", () => {
     console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`);
     console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
 
-    const logs = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
-
+    
     let reload = logs.send(`${loading}`).then(async m => {
         await m.edit(`${loading} Carregando comandos...`).then(async m2 => {
             await m2.edit(`\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
