@@ -11,7 +11,6 @@ const falouRecentemente = new Set()
 
 let loading = "<a:loading:722456385098481735>"
 
-const logs = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
@@ -37,8 +36,9 @@ bot.once("ready", () => {
     console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`);
     console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
 
-    
-    let reload = logs.send(`${loading}`).then(async m => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
+    let reload = log.send(`${loading}`).then(async m => {
         await m.edit(`${loading} Carregando comandos...`).then(async m2 => {
             await m2.edit(`\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
                 .catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
@@ -50,17 +50,22 @@ bot.once("ready", () => {
 })
 
 bot.once("guildCreate", server => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
     console.log(`\n■▶ [LOGS] ⇥ Bot adicionado ao servidor "${server.name}" | ID: "${server.id}"`)
-    logs.send(`\\▶ [LOGS] ⇥ Bot adicionado ao servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
+    log.send(`\\▶ [LOGS] ⇥ Bot adicionado ao servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
 })
 
 bot.once("guildDelete", server => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
     console.log(`\n■▶ [LOGS] ⇥ Bot removido do servidor "${server.name}" | ID: "${server.id}"`)
-    logs.send(`\\▶ [LOGS] ⇥ Bot removido do servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
+    log.send(`\\▶ [LOGS] ⇥ Bot removido do servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
 })
 
 bot.on("message", async message => {
-    
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
     if(message.author.bot) return;// Se o autor foi um bot, faz nada
     if(message.channel.type == "dm") return message.channel.send("I don't answer here..."); // Se a mensagem foi enviada por dm, não continua o código
 
@@ -85,7 +90,7 @@ bot.on("message", async message => {
             message.channel
             message.channel.send('`❌` Command not found.')
             console.log(`❌ Comando "${comando}" não encontrado`)
-            logs.send(`\`❌\` Comando "${comando}" não encontrado`)
+            log.send(`\`❌\` Comando "${comando}" não encontrado`)
         }
 
         falouRecentemente.add(message.author.id);
