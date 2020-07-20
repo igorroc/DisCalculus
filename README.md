@@ -1,5 +1,6 @@
 # DisCalculus
 > ➗ A calculus bot for Discord ➕
+[![Discord Bots](https://top.gg/api/widget/status/725319850808967198.svg)](https://top.gg/bot/725319850808967198)
 
 ## 📧 Invite:
 
@@ -81,5 +82,6 @@ A simple command that reports the current latency of the bot-server connection!
 * [LinkedIn](https://www.linkedin.com/in/igorroc/)
 * [e-Mail](mailto:igor_roc@hotmail.com.br)
 
+[![Discord Bots](https://top.gg/api/widget/725319850808967198.svg)](https://top.gg/bot/725319850808967198)
 
 [🔝 Back to top](#)
