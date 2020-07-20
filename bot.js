@@ -32,18 +32,16 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.once("ready", () => {
-    console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
+    console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
     console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`);
-    console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
+    console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
 
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    let reload = log.send(`${loading}`).then(async m => {
-        await m.edit(`${loading} Carregando comandos...`).then(async m2 => {
-            await m2.edit(`\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
-                .catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
-        }).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
-    }).catch( () => console.log(`↳ ⚠️ Erro ao deletar a mensagem`) )
+    let reload = log.send(`${loading}`).then(async m2 => {
+            await m2.edit(`🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
+                .catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
+        }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
 
     bot.user.setActivity(`${config.prefix}help | Created by Igor Rocha`, {type: 'WATCHING'})
 
@@ -75,7 +73,7 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
     
     if(!message.content.startsWith(prefix)) return; // Valida o prefix do comando
-
+    
     let m = await message.channel.send(loading)
     if (falouRecentemente.has(message.author.id)) {
         await m.edit("Wait 5 seconds until sending another command.").then(async n => {
