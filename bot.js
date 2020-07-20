@@ -52,15 +52,15 @@ bot.once("ready", () => {
 bot.once("guildCreate", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Bot adicionado ao servidor "${server.name}" | ID: "${server.id}"`)
-    log.send(`\\▶ [LOGS] ⇥ Bot adicionado ao servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
+    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor "${server.name}" | ID: "${server.id}"`)
+    log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n|| ID: \` ${server.id} \`||`)
 })
 
 bot.once("guildDelete", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Bot removido do servidor "${server.name}" | ID: "${server.id}"`)
-    log.send(`\\▶ [LOGS] ⇥ Bot removido do servidor \` ${server.name} \`\n|| ID: \` ${server.id} \`||`)
+    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor "${server.name}" | ID: "${server.id}"`)
+    log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n|| ID: \` ${server.id} \`||`)
 })
 
 bot.on("message", async message => {
@@ -90,7 +90,7 @@ bot.on("message", async message => {
             message.channel
             message.channel.send('`❌` Command not found.')
             console.log(`❌ Comando "${comando}" não encontrado`)
-            log.send(`\`❌\` Comando "${comando}" não encontrado`)
+            log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
         }
 
         falouRecentemente.add(message.author.id);
