@@ -88,7 +88,7 @@ bot.on("message", async message => {
         if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
         else{
             message.channel
-            message.channel.send('`❌` Command not found.')
+            message.channel.send(`\`❌\` Command not found. Use \` ${config.prefix}help \` to see commands`)
             console.log(`❌ Comando "${comando}" não encontrado`)
             log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
         }
