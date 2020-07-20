@@ -6,7 +6,7 @@ const pi = '3.14159265359'
 module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Calculo" no server "${message.guild.name}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Calculate" no server "${message.guild.name}"`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Calculo \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
 
     let conta = args.toString().replace(/pi|π/gm, pi).replace(/,/gm, "")
