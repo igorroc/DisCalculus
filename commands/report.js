@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.green_dark)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`\`\`\`md\n# Thank you for sending your report!\n\n# You can enter on the official server, if you want more help!\n\`\`\``)
-            .addField("Server Link:", "https://discord.gg/QdqB5sR")
+            .addField("**Server Link:**", "https://discord.gg/QdqB5sR")
             .setFooter(`DisCalculus | Currently on ${bot.guilds.cache.size} servers!`)
 
         message.channel.send(embed)
@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.red_light)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`\`\`\`md\n<\nType a message you want to send to my owner!\n>\n\nExample:\n<+report I'm having trouble with the calculation command. Can you help me?>\n\n<Disclaimer: By sending this message, my owner will be able to get your User Tag and then send you a direct message to help you!>\n\n# You can enter on the official server, if you want more help!\n\`\`\``)
-            .addField("Server Link:", "https://discord.gg/QdqB5sR")
+            .addField("**Server Link:**", "https://discord.gg/QdqB5sR")
             .setFooter(`DisCalculus | Currently on ${bot.guilds.cache.size} servers!`)
 
         message.channel.send(embed)
