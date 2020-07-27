@@ -9,8 +9,25 @@ bot.aliases = new Discord.Collection();
 
 const falouRecentemente = new Set()
 
+const DBL = require("dblapi.js");
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyNTMxOTg1MDgwODk2NzE5OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1ODE4NzY1fQ.jgrFRj0rlpazJt2f7-t3zZbFkJ81bzoe58mQMls50Ow', client);
+
 let loading = "<a:loading:722456385098481735>"
 
+// Optional events
+dbl.on('posted', () => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
+    console.log('Server count posted!');
+    log.send('Server count posted!');
+})
+
+dbl.on('error', e => {
+    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
+
+    console.log(`Oops! ${e}`);
+    log.send(`Oops! ${e}`);
+})
 
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
