@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Report \` no server \` ${message.guild.name} \`\n`)
 
     if(args[0]){
-        let msg = args.toString();
+        let msg = args
         var embed = new Discord.MessageEmbed()
             .setColor(colours.green_dark)
             .setAuthor(bot.user.username, message.guild.iconURL())
