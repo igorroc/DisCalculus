@@ -50,15 +50,15 @@ bot.once("ready", () => {
 bot.once("guildCreate", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor "${server.name}" | ID: "${server.id}"`)
-    log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n|| ID: \` ${server.id} \`||`)
+    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor "${server.name}"`)
+    log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n`)
 })
 
 bot.once("guildDelete", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor "${server.name}" | ID: "${server.id}"`)
-    log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n|| ID: \` ${server.id} \`||`)
+    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor "${server.name}"`)
+    log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n`)
 })
 
 bot.on("message", async message => {
@@ -81,14 +81,13 @@ bot.on("message", async message => {
         })
     }else{
         await m.delete()
-
         let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
         if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
         else{
             message.channel
             message.channel.send(`\`❌\` Command not found. Use \` ${config.prefix}help \` to see commands`)
             console.log(`❌ Comando "${comando}" não encontrado`)
-            log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
+            log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
 
         falouRecentemente.add(message.author.id);

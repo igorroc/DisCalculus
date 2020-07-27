@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Help" no server "${message.guild.name}"`)
-    log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Help \` no server \` ${message.guild.name} \`\n|| ↳ ID: \` ${message.guild.id} \`||`)
+    log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Help \` no server \` ${message.guild.name} \`\n`)
     
     if(args[0] == "help") return message.channel.send(`\`❌\` Use \` ${prefix}help \` instead!`)
 
