@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         reports.send(`🔔 Report feito por ${message.author.username}#${message.author.discriminator}:\`\`\`md\n${msg}\n\`\`\``)
     }else{
         var embed = new Discord.MessageEmbed()
-            .setColor(colours.yellow)
+            .setColor(colours.red_light)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`\`\`\`md\n<\nType a message you want to send to my owner!\n>\n\nExample:\n<+report I'm having trouble with the calculation command. Can you help me?>\n\n<Disclaimer: By sending this message, my owner will be able to get your User Tag and then send you a direct message to help you!>\n\n# You can enter on the official server, if you want more help!\n\`\`\``)
             .addField("Server Link:", "https://discord.gg/QdqB5sR")
