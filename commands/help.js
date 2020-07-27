@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
                 Sembed.addField("Special Commands:", "None")
             }
         }
-        Sembed.addField("---------------", `For more information type \` ${prefix}help [command] \``)
+        Sembed.addField("\u200b", `For more information type \` ${prefix}help [command] \``)
         .setFooter(`${bot.user.username} | Comands: ${bot.commands.size}`)
         message.channel.send(Sembed)
     }
