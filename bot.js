@@ -10,7 +10,7 @@ bot.aliases = new Discord.Collection();
 const falouRecentemente = new Set()
 
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyNTMxOTg1MDgwODk2NzE5OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1ODE4NzY1fQ.jgrFRj0rlpazJt2f7-t3zZbFkJ81bzoe58mQMls50Ow', client);
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyNTMxOTg1MDgwODk2NzE5OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk1ODE4NzY1fQ.jgrFRj0rlpazJt2f7-t3zZbFkJ81bzoe58mQMls50Ow', bot);
 
 let loading = "<a:loading:722456385098481735>"
 
