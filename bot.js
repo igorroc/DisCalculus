@@ -39,7 +39,7 @@ bot.once("ready", () => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
     let reload = log.send(`${loading}`).then(async m2 => {
-            await m2.edit(`🔽╰(*°▽°*)╯🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
+            await m2.edit(`🔽╰(\*°▽°\*)╯🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
                 .catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
         }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
 
