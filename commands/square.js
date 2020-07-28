@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Square" no server "${message.guild.name}"`)
-    log.send(`\\▶️ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Square \` no server \` ${message.guild.name} \`\n`)
+    log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Square \` no server \` ${message.guild.name} \`\n`)
     
     let valor = args.toString().replace(/pi|π/gm, pi).replace(/,/gm, "")
     

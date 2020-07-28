@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Factorial" no server "${message.guild.name}"`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Factorial \` no server \` ${message.guild.name} \`\n`)
 
-    if(!args){
+    if(!args[0]){
         console.log(`↳ ⚠️  Usuário "${message.author.username}" não informou um valor.`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` não informou um valor.`)
 
