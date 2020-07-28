@@ -101,10 +101,13 @@ bot.on("message", async message => {
             log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
 
-        falouRecentemente.add(message.author.id);
-        setTimeout(() => {
-            falouRecentemente.delete(message.author.id);
-        }, 5000);
+        if(message.author.id != "580722395766194176"){
+            falouRecentemente.add(message.author.id);
+            setTimeout(() => {
+                falouRecentemente.delete(message.author.id);
+            }, 5000);
+        }
+        
     }
 
     
