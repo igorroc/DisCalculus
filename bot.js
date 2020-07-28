@@ -15,18 +15,8 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyNTMxOTg1MD
 let loading = "<a:loading:722456385098481735>"
 
 // Optional events
-dbl.on('posted', () => {
-    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
-
-    console.log('Server count posted!');
-    log.send('Server count posted!');
-})
-
 dbl.on('error', e => {
-    const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
-
-    console.log(`Oops! ${e}`);
-    log.send(`Oops! ${e}`);
+   console.log(`Oops! ${e}`);
 })
 
 fs.readdir("./commands/", (err, files) => {
@@ -55,7 +45,11 @@ bot.once("ready", () => {
 
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    let reload = log.send(`${loading}`).then(async m2 => {
+    let reload = log.send(`${loading} Reiniciando...`).then(async m1 => {
+        await m1.edit(`✅ Reiniciado!`).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
+    }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
+    
+    let starting = log.send(`${loading}`).then(async m2 => {
             await m2.edit(`🔽╰(\*°▽°\*)╯🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
                 .catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
         }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
