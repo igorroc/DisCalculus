@@ -50,7 +50,7 @@ bot.once("ready", () => {
     }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
     
     let starting = log.send(`${loading}`).then(async m2 => {
-            await m2.edit(`🔽╰(\*°▽°\*)╯🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
+            await m2.edit(`🔽╰(\\*°▽°\\*)╯🔽\n\\✅ Bot iniciado em ${bot.guilds.cache.size} servidor(es)`)
                 .catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
         }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
 
