@@ -84,6 +84,6 @@ A simple command that reports the current latency of the bot-server connection!
 * [LinkedIn](https://www.linkedin.com/in/igorroc/)
 * [e-mail](mailto:igor_roc@hotmail.com.br)
 
-[![Discord Bots](https://top.gg/api/widget/725319850808967198.svg?topcolor=628E61?usernamecolor=F7F7F7)](https://top.gg/bot/725319850808967198)
+[![Discord Bots](https://top.gg/api/widget/725319850808967198.svg)](https://top.gg/bot/725319850808967198)
 
 [🔝 Back to top](#)
