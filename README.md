@@ -65,9 +65,11 @@ A simple command that reports the current latency of the bot-server connection!
 
 ----
 ## 📁 Dependencies
+* `dblapi.js`: "^2.4.0",
 * `discord.js`: "^12.2.0",
 * `fs`: "0.0.1-security",
-* `lowdb`: "^1.0.0"
+* `lowdb`: "^1.0.0",
+* `ms`: "^2.1.2"
 
 
 ----
@@ -82,6 +84,6 @@ A simple command that reports the current latency of the bot-server connection!
 * [LinkedIn](https://www.linkedin.com/in/igorroc/)
 * [e-mail](mailto:igor_roc@hotmail.com.br)
 
-[![Discord Bots](https://top.gg/api/widget/725319850808967198.svg)](https://top.gg/bot/725319850808967198)
+[![Discord Bots](https://top.gg/api/widget/725319850808967198.svg?topcolor=628E61?usernamecolor=F7F7F7)](https://top.gg/bot/725319850808967198)
 
 [🔝 Back to top](#)
