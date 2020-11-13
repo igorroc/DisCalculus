@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Conversion"`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Conversion \` no server \` ${message.guild.name} \`\n`)
 
-    //return message.channel.send("Soon...")
+    return message.channel.send("Soon...")
 
     let valor = args[0]
     if(valor == "unit" || valor == "units"){
