@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send("`❌` Enter an calculation for me to perform\n> For more information type ` +help calculus `")
     }
     if(conta.search(/[a-z]|[A-Z]/gm) > -1){
-        console.log(`↳ ⚠️  Usuário "${message.author.username}" digitou caracteres.`)
+        console.log(`↳ ⚠️  Usuário "${message.author.username}" digitou caracteres: "${conta}"`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` digitou caracteres.`)
         return message.channel.send("`❌` I can't do advanced calculations yet.")
     }
