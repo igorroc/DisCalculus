@@ -95,8 +95,8 @@ bot.on("message", async message => {
         let commandfile = bot.commands.get(comando) || bot.commands.get(bot.aliases.get(comando)) // Pega o comando escrito no arquivo de comandos
         if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
         else{
-            message.channel
-            message.channel.send(`\`❌\` Command not found. Use \` ${config.prefix}help \` to see commands`)
+            
+            message.channel.send(`\`❌\` Command \`${commandfile}\` not found. Use \` ${config.prefix}help \` to see commands.`)
             console.log(`❌ Comando "${comando}" não encontrado`)
             log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
