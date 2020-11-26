@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Calculate" no server "${message.guild.name}"`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Calculo \` no server \` ${message.guild.name} \`\n`)
 
-    let conta = args.toString().replace(/pi|π/gm, pi).replace(/÷/gm, '/').replace(/,/gm, "").replace(/×/gm, "*")
+    let conta = args.toString().replace(/pi|π/gm, pi).replace(/÷/gm, '/').replace(/,/gm, "").replace(/×/gm, "*").replace(/ /gm, "")
 
     if(!conta){
         console.log(`↳ ⚠️  Usuário "${message.author.username}" não enviou uma conta.`)
