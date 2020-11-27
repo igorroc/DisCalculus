@@ -54,7 +54,7 @@ bot.once("ready", () => {
                 .catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
         }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
 
-    bot.user.setActivity(`${config.prefix}help | Created by Igor Rocha`, {type: 'WATCHING'})
+    bot.user.setActivity(`${config.prefix}help | Created by @igor.roc`, {type: 'WATCHING'})
 
 })
 
