@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Vote" no server "${message.guild.name}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário '${message.author.username}' usou o comando 'Vote' no server '${message.guild.name}'`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Vote \` no server \` ${message.guild.name} \`\n`)
 
     let jaVotou = dbl.hasVoted(message.author.id).then(voted => {

@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
     const reports = bot.guilds.cache.get('725691740538929225').channels.cache.get('737129693760847975')
     
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Report" no server "${message.guild.name}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário '${message.author.username}' usou o comando 'Report' no server '${message.guild.name}'`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Report \` no server \` ${message.guild.name} \`\n`)
 
     if(args[0]){

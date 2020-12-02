@@ -30,7 +30,7 @@ fs.readdir("./commands/", (err, files) => {
     jsfile.forEach((f, i) => {
         let pull = require(`./commands/${f}`); // Importa cada arquivo
         bot.commands.set(pull.config.name, pull); // Coloca o nome dele na Collection
-        console.log(`\n■▶ [LOGS] ⇥ Comando "${pull.config.name}" inicializado com sucesso`)
+        console.log(`\n■▶ [LOGS] ⇥ Comando '${pull.config.name}' inicializado com sucesso`)
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias, pull.config.name) // Coloca a variação dele na Collection
             console.log(`↳ Variação '${alias}' adicionada para "${pull.config.name}"`)
@@ -61,14 +61,14 @@ bot.once("ready", () => {
 bot.once("guildCreate", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor "${server.name}"`)
+    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor '${server.name}'`)
     log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n`)
 })
 
 bot.once("guildDelete", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor "${server.name}"`)
+    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor '${server.name}'`)
     log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \` - Total: ${bot.guilds.cache.size}\n`)
 })
 
@@ -97,7 +97,7 @@ bot.on("message", async message => {
         else{
             
             message.channel.send(`\`❌\` Command \`${commandfile}\` not found. Use \` ${config.prefix}help \` to see commands.`)
-            console.log(`❌ Comando "${comando}" não encontrado`)
+            console.log(`❌ Comando '${comando}' não encontrado`)
             log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
 

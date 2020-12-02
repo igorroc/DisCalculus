@@ -6,18 +6,18 @@ const pi = '3.14159265359'
 module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Calculate" no server "${message.guild.name}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário '${message.author.username}' usou o comando 'Calculate' no server '${message.guild.name}'`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Calculo \` no server \` ${message.guild.name} \`\n`)
 
     let conta = args.toString().replace(/pi|π/gm, pi).replace(/÷/gm, '/').replace(/,/gm, "").replace(/×/gm, "*").replace(/ /gm, "")
 
     if(!conta){
-        console.log(`↳ ⚠️  Usuário "${message.author.username}" não enviou uma conta.`)
+        console.log(`↳ ⚠️  Usuário '${message.author.username}' não enviou uma conta.`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` não enviou uma conta.`)
         return message.channel.send("`❌` Enter an calculation for me to perform\n> For more information type ` +help calculus `")
     }
     if(conta.search(/[a-z]|[A-Z]/gm) > -1){
-        console.log(`↳ ⚠️  Usuário "${message.author.username}" digitou caracteres: "${conta}"`)
+        console.log(`↳ ⚠️  Usuário '${message.author.username}' digitou caracteres: "${conta}"`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` digitou caracteres: \` ${conta} \``)
         return message.channel.send("`❌` I can't do advanced calculations yet.")
     }
@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
             resultado = eval(conta)
         }
     } catch (error) {
-        console.log(`↳ ⚠️  Erro ao calcular "${conta}"`)
+        console.log(`↳ ⚠️  Erro ao calcular '${conta}'`)
         log.send(`↳ \\⚠️  Erro ao calcular \` ${conta} \``)
         return message.channel.send("`❌` Error when calculating.")
     }

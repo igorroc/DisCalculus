@@ -12,17 +12,17 @@ function factorial(value) {
 module.exports.run = async (bot, message, args) => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    console.log(`\n■▶ [LOGS] ⇥ Usuário "${message.author.username}" usou o comando "Factorial" no server "${message.guild.name}"`)
+    console.log(`\n■▶ [LOGS] ⇥ Usuário '${message.author.username}' usou o comando 'Factorial' no server '${message.guild.name}'`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Factorial \` no server \` ${message.guild.name} \`\n`)
 
     if(!args[0]){
-        console.log(`↳ ⚠️  Usuário "${message.author.username}" não informou um valor.`)
+        console.log(`↳ ⚠️  Usuário '${message.author.username}' não informou um valor.`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` não informou um valor.`)
 
         return message.channel.send("`❌` Enter some value for me to perform the factorial.\n> For more information, type ` +help factorial `")
     }
     if(args[1]){
-        console.log(`↳ ⚠️  Usuário "${message.author.username}" indicou mais de 1 valor.`)
+        console.log(`↳ ⚠️  Usuário '${message.author.username}' indicou mais de 1 valor.`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` indicou mais de 1 valor.`)
 
         return message.channel.send("`❌` Enter only one value.\n> For more information, type ` +help factorial `")
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 
     let valor = args
     if(isNaN(valor)){
-        console.log(`↳ ⚠️  Valor indicado por "${message.author.username}" não é um número.`)
+        console.log(`↳ ⚠️  Valor indicado por '${message.author.username}' não é um número.`)
         log.send(`↳ \\⚠️  Valor indicado por \` ${message.author.username} \` não é um número.`)
 
         return message.channel.send("`❌` The value entered is not a number.")
@@ -43,10 +43,10 @@ module.exports.run = async (bot, message, args) => {
 
         return message.channel.send(`\`\`\`\n${valor}! = ${resposta}\`\`\``)
     }else{
-        console.log(`↳ ⚠️  Não foi possível calcular o fatorial de ${valor}`)
-        log.send(`↳ \\⚠️  Não foi possível calcular o fatorial de ${valor}`)
+        console.log(`↳ ⚠️  Não foi possível calcular o fatorial de '${valor}'`)
+        log.send(`↳ \\⚠️  Não foi possível calcular o fatorial de \` ${valor} \``)
 
-        return message.channel.send(`\`❌\` It was not possible to calculate the factorial of "${valor}"`)
+        return message.channel.send(`\`❌\` It was not possible to calculate the factorial of \`${valor}\``)
     }
 }
 
