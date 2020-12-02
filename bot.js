@@ -24,16 +24,16 @@ fs.readdir("./commands/", (err, files) => {
 
     let jsfile = files.filter(f => f.split(".").pop() === "js") // Pega todos os nomes dos comandos da pasta "./commands/" e remove o '.js'
     if(jsfile.length <= 0) {
-        return console.log("■▶ [LOGS] ⇥ ❌ Não foi possível encontrar comandos!");
+        return console.log("[STARTING] ⇥ ❌ Não foi possível encontrar comandos!");
     }
 
     jsfile.forEach((f, i) => {
         let pull = require(`./commands/${f}`); // Importa cada arquivo
         bot.commands.set(pull.config.name, pull); // Coloca o nome dele na Collection
-        console.log(`\n■▶ [LOGS] ⇥ Comando '${pull.config.name}' inicializado com sucesso`)
+        console.log(`\n■▶ [STARTING] ⇥ Comando '${pull.config.name}' inicializado com sucesso`)
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias, pull.config.name) // Coloca a variação dele na Collection
-            console.log(`↳ Variação '${alias}' adicionada para "${pull.config.name}"`)
+            console.log(`↳ Variação '${alias}' adicionada`)
         });
     });
 });
