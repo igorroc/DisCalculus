@@ -15,12 +15,14 @@ module.exports.run = async (bot, message, args) => {
         log.send(`↳ \\❌ Operação cancelada!`)
         return
     }
+
     var SHembed = new Discord.MessageEmbed()
             .setColor(colours.yellow)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`> Bot prefix is: \` ${config.prefix} \``)
             .addField(`**Servers (${bot.guilds.cache.size}):**`, bot.guilds.cache.array().join("\n"))
-    message.channel.send(SHembed);
+    
+    await message.channel.send(SHembed);
 
     
     console.log(`↳ ✅ Operação finalizada!`)
