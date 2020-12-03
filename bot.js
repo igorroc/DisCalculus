@@ -98,7 +98,7 @@ bot.on("message", async message => {
             
             message.channel.send(`\`❌\` Command \`${commandfile}\` not found. Use \` ${config.prefix}help \` to see commands.`)
             console.log(`\n❌ Comando '${comando}' não encontrado`)
-            log.send(`\\▶ [LOGS] ⇥ \`❎\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
+            log.send(`\\▶ [LOGS] ⇥ \`❌\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
 
         if(message.author.id != "580722395766194176"){
