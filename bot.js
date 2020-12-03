@@ -61,14 +61,14 @@ bot.once("ready", () => {
 bot.once("guildCreate", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    await console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor '${server.name}'`)
+    console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor '${server.name}'`)
     await log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \`\n> Total: ${bot.guilds.cache.size}\n`)
 })
 
 bot.once("guildDelete", server => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
-    await console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor '${server.name}'`)
+    console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor '${server.name}'`)
     await log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \`\n> Total: ${bot.guilds.cache.size}\n`)
 })
 
