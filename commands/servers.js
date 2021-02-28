@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.yellow)
             .setAuthor(bot.user.username, message.guild.iconURL())
             .setDescription(`> Bot prefix is: \` ${config.prefix} \``)
-            .addField(`**Servers (${bot.guilds.cache.size}):**`, bot.guilds.cache.array().join("\n"))
+            .addField(`**Servers:**`, bot.guilds.cache.size)
     
     await message.channel.send(SHembed);
 
