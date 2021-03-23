@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
     let conta = args.join(" ")
-    if(!conta){
+    if(!conta || conta.search("parse","evaluate") != -1){
         console.log(`↳ ⚠️  Usuário '${message.author.username}' não enviou uma expressão.`)
         log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` não enviou uma expressão.`)
         return message.channel.send("`❌` Enter an expression for me to perform\n> For more information type ` +help conversion `")
