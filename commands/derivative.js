@@ -39,5 +39,5 @@ module.exports.config = {
     description: "Perform the specified derivate from a variable!",
     usage: "+derivative [variable] [expression]\n+derivative x 3x + 12",
     accessableby: "Members",
-    aliases: ["derivada", "d"]
+    aliases: ["derivada", "derive", "d"]
 }

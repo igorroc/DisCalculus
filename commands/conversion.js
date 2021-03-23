@@ -58,5 +58,5 @@ module.exports.config = {
     description: "Converts the indicated value to the requested unit!",
     usage: "+conversion [value] [unit] to [unit]\n+conversion 5 km to mile\n\nYou can use \`+conversion unit\` to see all suported units!",
     accessableby: "Members",
-    aliases: ["conv", "conversao"]
+    aliases: ["conv", "converter", "conversao"]
 }
