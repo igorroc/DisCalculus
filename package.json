@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgorRoc/DisCalculus.git"
+  },
   "author": "igorrocha",
   "license": "ISC",
   "dependencies": {
@@ -13,6 +17,7 @@
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
     "lowdb": "^1.0.0",
+    "mathjs": "^9.3.0",
     "ms": "^2.1.2"
   }
 }
