@@ -1,6 +1,5 @@
 const Discord = require("discord.js")
 const mathjs = require("mathjs")
-const pi = '3.14159265359'
 
 
 module.exports.run = async (bot, message, args) => {
