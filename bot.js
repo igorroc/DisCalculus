@@ -46,7 +46,7 @@ bot.once("ready", () => {
     const log = bot.guilds.cache.get('725691740538929225').channels.cache.get('725691977311453214')
 
     let reload = log.send(`${loading} Reiniciando...`).then(async m1 => {
-        await m1.edit(`✅ Reiniciado! @Wiggle#5952 `).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
+        await m1.edit(`✅ Reiniciado! <@580722395766194176>`).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
     }).catch( () => console.log(`↳ ⚠️ Erro ao editar a mensagem`) )
     
     let starting = log.send(`${loading}`).then(async m2 => {
