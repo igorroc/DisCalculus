@@ -1,7 +1,6 @@
 const Discord = require("discord.js")
 const colours = require("../colours.json")
-
-const cDB = require('../conversion.json')
+const mathjs = require("mathjs")
 
 
 module.exports.run = async (bot, message, args) => {
@@ -10,132 +9,54 @@ module.exports.run = async (bot, message, args) => {
     console.log(`\n■▶ [LOGS] ⇥ Usuário '${message.author.username}' usou o comando 'Conversion'`)
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Conversion \` no server \` ${message.guild.name} \`\n`)
 
-    return message.channel.send("Soon...")
-
-    let valor = args[0]
-    if(valor == "unit" || valor == "units"){
-        let embed = new Discord.MessageEmbed()
-            .setColor(colours.aqua)
-            .setAuthor(bot.user.username, message.guild.iconURL())
-        let units = 0;
-        let geral = [];
-        for(let tipo in cDB){
-            if(tipo == "aliases") continue
-            let obj = {}
-            let obj2 = {}
-            for(let a in cDB[tipo]){
-                let aliases = [];
-                for(let alias of cDB.aliases[a]){
-                    aliases.push(alias)
-                }
-                obj2[a] = aliases
-                obj[tipo] = obj2
-                units++;
-            }
-            geral.push(obj)
-            
-        }
-        console.log(geral)
-        /*
-        embed.setDescription(`**${tipo}:**`)
-            .addField(`:`, alias, true)
-            .setFooter(`${bot.user.username} | Total units: ${units}`)
+    if(args[0] == "unit" || args[0] == "units"){
+        const embed = new Discord.MessageEmbed()
+            .setColor('#21F2D8')
+            .setTitle('Units for Conversion')
+            .setDescription('Example: 5 km to mile')
+            .addFields(
+                { name: 'Volume', value: '`Liters`,`Milliliters`,`Gallons`,`Cups`', inline: false },
+                { name: 'Length', value: '`Nanometers`,`Milimeters`,`Centimeters`,`Meters`,`Kilometers`,`Inches`,`Feet`,`Yards`,`Miles`', inline: false },
+                { name: 'Weight and Mass', value: '`Grams`,`Milligrams`,`Centigrams`,`Decigrams`,`Grams`,`Hectograms`,`Kilograms`,`Ounces`,`Stone`,`Tons`', inline: false },
+                { name: 'Temperature', value: '`Celsius`,`Fahrenheit`,`Kelvin`', inline: false },
+                { name: 'Area', value: '`Hectares`,`Acres`', inline: false },
+                { name: 'Speed', value: '`Centimeters/Speed`,`Meters/Seconds`,`Kilometers/Hour`,`Feet/Second`,`Miles/Hour`', inline: false },
+                { name: 'Time', value: '`Microseconds`,`Milliseconds`,`Seconds`,`Minutes`,`Hours`,`Days`,`Weeks`,`Months`,`Years`', inline: false },
+                { name: 'Power', value: '`Watts`,`Kilowatts`,`Horsepower`,`BTUs/minute`', inline: false },
+                { name: 'Data', value: '`Bits`,`Bytes`,`Kilobits`,`Kibibits`,`Kilobytes`,`Megabytes`,`Gigabits`,`Gigabytes`,`Terabits`,`Terabytes`,`Petabits`,`Petabytes`,`Yottabytes`', inline: false },
+                { name: 'Angles', value: '`Degrees`,`Radians`,`Gradians`', inline: false },
+            )
         
-        message.channel.send(embed)
-        */
-
-        return 
-    }
-    if(!valor){
-        console.log(`↳ ⚠️ Usuário não informou um valor `)
-        log.send(`↳ ⚠️ Usuário não informou um valor `)
-        return message.channel.send("`❌` Enter some value for me to perform the conversion.\n> For more information, type ` +help conversion `")
-    }else{
-        valor = valor.toString()
+        message.channel.send(embed);
+        return
     }
 
-    let char = valor.search(/\D+/)
-    let from;
-    if(char != -1){
-        from = valor.slice(char)
-        valor = eval(valor.slice(0, char))
-    }
-    let to = args[1]
-
-    if(!from){
-        console.log(`↳ ⚠️ Usuário não digitou a unidade inicial`)
-        log.send(`↳ ⚠️ Usuário não digitou a unidade inicial`)
-        return message.channel.send("`❌` Enter the unit.")
-    }
-    if(isNaN(valor)){
-        console.log(`↳ ⚠️ Usuário digitou algum carácter`)
-        log.send(`↳ ⚠️ Usuário digitou algum carácter`)
-        return message.channel.send("`❌` Enter numbers only.")
-    }   
-
-    let result = new Discord.MessageEmbed()
-        .setColor(colours.aqua)
-        .setAuthor(bot.user.username, message.guild.iconURL())
-
-    if(!to){
-        let achou = false
-        for(let unit in cDB.aliases){
-            for(let alias of cDB.aliases[unit]){
-                console.log(alias+" | "+ unit)
-                if(alias == from){
-                    from = unit
-                    achou = true
-                    result.setDescription(`**${valor} ${from} to:**`)
-                    break;
-                }
-            }
-        }
-
-        if(achou){
-            if(from == "meter"||from == "kilometer"||from == "centimeter"||from == "millimeter"||from == "micrometer"||from == "nanometer"||from == "mile"||from == "yard"||from == "foot"||from == "inch"||from == "light_year"){
-                for(let unit in cDB.length[from]){
-                    result.addField(`${unit}:`, `${valor*cDB.length[from][unit]}`, true)
-                }
-            }else if(from == "celsius"||from == "kelvin"||from == "fahrenheit"){
-                for(let unit in cDB.temperature[from]){
-                    let r;
-                    if(from == "celsius"){
-                        if(unit == "kelvin"){
-                            r = valor + 273.15
-                        }else if(unit == "fahrenheit"){
-                            r = (valor * 9/5) + 32
-                        }
-                    }else if(from == "kelvin"){
-                        if(unit == "celsius"){
-                            r = valor - 273.15
-                        }else if(unit == "fahrenheit"){
-                            r = (valor - 273.15) * 9/5 + 32
-                        }
-                    }else if(from == "fahrenheit"){
-                        if(unit == "celsius"){
-                            r = (valor - 32) * 5/9
-                        }else if(unit == "kelvin"){
-                            r = (valor - 32) * 5/9 + 273.15
-                        }
-                    }
-                    result.addField(`${unit}:`, r, true)
-                }
-            }
-            
-        }else{
-            return message.channel.send(`❌ Unit \` ${from} \` not found.`)
-        }
-        
+    let conta = args.join(" ")
+    if(!conta){
+        console.log(`↳ ⚠️  Usuário '${message.author.username}' não enviou uma expressão.`)
+        log.send(`↳ \\⚠️  Usuário \` ${message.author.username} \` não enviou uma expressão.`)
+        return message.channel.send("`❌` Enter an expression for me to perform\n> For more information type ` +help conversion `")
     }
 
-    await message.channel.send(result)
+    let resultado
+    try {
+        resultado = mathjs.evaluate(conta)
+    } catch (error) {
+        console.log(`↳ ⚠️  Erro ao calcular '${conta}'`, error)
+        log.send(`↳ \\⚠️  Erro ao calcular \` ${conta} \``)
+        return message.channel.send("`❌` Error when converting.")
+    }
+    
+    message.channel.send(`\`\`\`\n${args[0]} ${args[1]} = ${resultado}\n\`\`\``)
+    console.log(`↳ ✅ Operação finalizada!`)
+    log.send(`↳ \\✅ Operação finalizada!`)
 }
 
 
 module.exports.config = {
     name: "conversion",
     description: "Converts the indicated value to the requested unit!",
-    usage: "+conversion [value][unit] [to]\n+conversion 5km mile\n\nYou can use '+conversion unit' to see all units I support!",
+    usage: "+conversion [value] [unit] to [unit]\n+conversion 5 km to mile\n\nYou can use \`+conversion unit\` to see all suported units!",
     accessableby: "Members",
     aliases: ["conv", "conversao"]
 }
