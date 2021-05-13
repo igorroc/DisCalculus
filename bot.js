@@ -56,6 +56,12 @@ bot.once("ready", () => {
 
     bot.user.setActivity(`${config.prefix}help | Created by @igor.roc`, {type: 'WATCHING'})
 
+    let commands = bot.guilds.cache.get('725691740538929225').channels.cache.get('842347902726176768')
+    commands.setName(`🔧▏ Commands: ${bot.commands.size}`)
+
+    let servers = bot.guilds.cache.get('725691740538929225').channels.cache.get('842346193787027496')
+    servers.setName(`🤖▏ Servers: ${bot.guilds.cache.size}`)
+    
 })
 
 bot.once("guildCreate", async server => {
@@ -63,6 +69,10 @@ bot.once("guildCreate", async server => {
 
     await console.log(`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor '${server.name}'`)
     await log.send(`\\▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor \` ${server.name} \`\n> Total: ${bot.guilds.cache.size}\n`)
+    
+    let servers = bot.guilds.cache.get('725691740538929225').channels.cache.get('842346193787027496')
+    servers.setName(`🤖▏ Servers: ${bot.guilds.cache.size}`)
+    
 })
 
 bot.once("guildDelete", async server => {
@@ -70,6 +80,10 @@ bot.once("guildDelete", async server => {
 
     await console.log(`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor '${server.name}'`)
     await log.send(`\\▶ [LOGS] ❌ ⇥ Bot removido do servidor \` ${server.name} \`\n> Total: ${bot.guilds.cache.size}\n`)
+    
+    let servers = bot.guilds.cache.get('725691740538929225').channels.cache.get('842346193787027496')
+    servers.setName(`🤖▏ Servers: ${bot.guilds.cache.size}`)
+    
 })
 
 bot.on("message", async message => {
@@ -96,7 +110,7 @@ bot.on("message", async message => {
         if(commandfile) commandfile.run(bot,message,args) // Verifica se o comando existe
         else{
             
-            message.channel.send(`\`❌\` Command \`${commandfile}\` not found. Use \` ${config.prefix}help \` to see commands.`)
+            message.channel.send(`\`❌\` Command \`${comando}\` not found.\nUse \` ${config.prefix}help \` to see commands.`)
             console.log(`\n❌ Comando '${comando}' não encontrado`)
             log.send(`\\▶ [LOGS] ⇥ \`❌\` Comando \` ${comando} \` não encontrado pelo usuário \` ${message.author.username} \` no server \` ${message.guild.name} \`\n`)
         }
