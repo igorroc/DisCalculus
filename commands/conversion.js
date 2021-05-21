@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
 	if (args[0] == "unit" || args[0] == "units") {
 		const embed = new Discord.MessageEmbed()
-			.setColor("#21F2D8")
+			.setColor("#5E8A60")
 			.setTitle("Units for Conversion")
 			.setDescription("Example: 5 km to mile")
 			.addFields(
