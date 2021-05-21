@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     log.send(`\\▶ [LOGS] ⇥ Usuário \` ${message.author.username} \` usou o comando \` Servers \` no server \` ${message.guild.name} \`\n`)
 
     if(!message.member.hasPermission("ADMINISTRATOR")){
-        message.channel.send("`❌` You don't have the power!")
+        message.reply("`❌` You don't have the power!")
         console.log(`↳ ❌ Operação cancelada!`)
         log.send(`↳ \\❌ Operação cancelada!`)
         return
