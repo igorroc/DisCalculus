@@ -94,7 +94,12 @@ module.exports.run = async (bot, message, args) => {
 		return message.channel.send("`❌` Error when converting.")
 	}
 
-	message.channel.send(`\`\`\`\n${args[0]} ${args[1]} = ${resultado}\n\`\`\``)
+	const embed = new Discord.MessageEmbed()
+		.setColor("#5E8A60")
+		.setTitle("\\🔄 Conversion")
+		.setDescription(`\`\`\`fix\n${args[0]} = ${resultado}\n\`\`\``)
+
+	message.reply(embed)
 	console.log(`↳ ✅ Operação finalizada!`)
 	log.send(`↳ \\✅ Operação finalizada!`)
 }

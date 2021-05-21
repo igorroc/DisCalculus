@@ -36,9 +36,15 @@ module.exports.run = async (bot, message, args) => {
 		return message.channel.send("`❌` Error when calculating.")
 	}
 
-	message.channel.send(
-		`\`\`\`\nf(${variavel}) = ${conta}\nf'(${variavel}) = ${resultado}\n\`\`\``
-	)
+	const embed = new Discord.MessageEmbed()
+		.setColor("#5E8A60")
+		.setTitle("\\❓ Derivative")
+		.setDescription(
+			`\`\`\`fix\nf(${variavel}) = ${conta}\n\`\`\`` +
+				`\`\`\`fix\nf'(${variavel}) = ${resultado}\n\`\`\``
+		)
+
+	message.reply(embed)
 	console.log(`↳ ✅ Operação finalizada!`)
 	log.send(`↳ \\✅ Operação finalizada!`)
 }

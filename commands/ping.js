@@ -15,12 +15,24 @@ module.exports.run = async (bot, message, args) => {
 	let loading = "<a:loading:722456385098481735>"
 	let check = "<a:check:722456384301563966>"
 
-	const m = await message.channel.send(`${loading} Ping?`)
-	m.edit(
-		`${check} Pong!\nLatency is ${
-			m.createdTimestamp - message.createdTimestamp
-		}ms.\nAPI latency is ${Math.round(bot.ws.ping)}ms`
-	)
+	const ping = new Discord.MessageEmbed()
+		.setTitle(`${loading} Ping?`)
+		.setColor("#FFC83D")
+
+	var msg = await message.channel.send(ping)
+
+	const pong = new Discord.MessageEmbed()
+		.setTitle(`${check} Pong!`)
+		.setColor("#5E8A60")
+		.setDescription(
+			`Latency is **${
+				msg.createdTimestamp - message.createdTimestamp
+			}ms**. \nAPI latency is **${Math.round(bot.ws.ping)}ms**.`
+		)
+		.setTimestamp()
+
+	msg.edit(pong)
+
 	console.log(
 		`↳ Ping! Pong! Latencia: ${
 			m.createdTimestamp - message.createdTimestamp

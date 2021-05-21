@@ -15,9 +15,15 @@ module.exports.run = async (bot, message, args) => {
 
 	let up = ms(bot.uptime, { long: true })
 
-	const m = await message.channel.send(
-		`I've been working for \`${up}\` without accidents!`
-	)
+	const embed = new Discord.MessageEmbed()
+		.setColor("#5E8A60")
+		.setTitle("\\🎉 Up Time")
+		.setDescription(
+			`I've been working for **${up}** without accidents!`
+		)
+		.setTimestamp()
+
+	message.channel.send(embed)
 	console.log(`↳ Uptime: '${up}'`)
 }
 

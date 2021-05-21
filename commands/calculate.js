@@ -43,7 +43,12 @@ module.exports.run = async (bot, message, args) => {
 		}
 	}
 
-	message.channel.send(`\`\`\`\n${conta} = ${resultado}\n\`\`\``)
+	const embed = new Discord.MessageEmbed()
+		.setColor("#5E8A60")
+		.setTitle("\\➗ Calculation")
+		.setDescription(`\`\`\`fix\n${conta} = ${resultado}\n\`\`\``)
+
+	message.reply(embed)
 	console.log(`↳ ✅ Operação finalizada!`)
 	log.send(`↳ \\✅ Operação finalizada!`)
 }
