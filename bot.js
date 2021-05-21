@@ -47,9 +47,16 @@ fs.readdir("./commands/", (err, files) => {
 })
 
 bot.once("ready", () => {
-	console.log("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■")
-	console.log(`■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`)
-	console.log("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n")
+	let mensagem = `■ Bot foi iniciado em ${bot.guilds.cache.size} servidor(es) ■`
+	let barra = ""
+
+	for (let i = 0; i < mensagem.length; i++) {
+		barra = barra + "■"
+	}
+
+	console.log(barra)
+	console.log(mensagem)
+	console.log(barra + "\n\n")
 
 	const log = bot.guilds.cache
 		.get("725691740538929225")
@@ -95,7 +102,7 @@ bot.once("guildCreate", async (server) => {
 		.get("725691740538929225")
 		.channels.cache.get("725691977311453214")
 
-	await console.log(
+	console.log(
 		`\n■▶ [LOGS] ✅ ⇥ Bot adicionado ao servidor '${server.name}'`
 	)
 	await log.send(
@@ -113,7 +120,7 @@ bot.once("guildDelete", async (server) => {
 		.get("725691740538929225")
 		.channels.cache.get("725691977311453214")
 
-	await console.log(
+	console.log(
 		`\n■▶ [LOGS] ❌ ⇥ Bot removido do servidor '${server.name}'`
 	)
 	await log.send(
@@ -168,7 +175,7 @@ bot.on("message", async (message) => {
 			)
 		}
 
-		if (message.author.id != "580722395766194176") {
+		if (message.author.id != "580722395766194176") { // Adiciona um timer para todos os usuarios, exceto eu!
 			falouRecentemente.add(message.author.id)
 			setTimeout(() => {
 				falouRecentemente.delete(message.author.id)
