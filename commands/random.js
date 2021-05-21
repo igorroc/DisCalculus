@@ -22,13 +22,13 @@ module.exports.run = async (bot, message, args) => {
 
 	if (!min || !Number.isInteger(min)) {
 		random = Math.random()
-        embed.setDescription(`\`0 < x < 1\` = \`${random}\``)
+		embed.setDescription(`\`0 < x < 1\` = \`${random}\``)
 	} else if (!max || !Number.isInteger(max)) {
 		random = Math.floor(Math.random() * (min + 1))
-        embed.setDescription(`\`0 < x < ${min}\` = \`${random}\``)
+		embed.setDescription(`\`0 < x < ${min}\` = \`${random}\``)
 	} else {
 		random = Math.floor(Math.random() * (max - min + 1) + min)
-        embed.setDescription(`\`${min} < x < ${max}\` = \`${random}\``)
+		embed.setDescription(`\`${min} < x < ${max}\` = \`${random}\``)
 	}
 
 	message.reply(embed)
